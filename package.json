@@ -1,0 +1,23 @@
+{
+  "name": "bc-19-typing-speed-app",
+  "version": "1.0.0",
+  "description": "A typing speed application that test typing skills and persist data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehrceey04/bc-19-typing-speed-application.git"
+  },
+  "keywords": [
+    "typing",
+    "speed"
+  ],
+  "author": "Halimat Mercy Oseni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mehrceey04/bc-19-typing-speed-application/issues"
+  },
+  "homepage": "https://github.com/mehrceey04/bc-19-typing-speed-application#readme"
+}
