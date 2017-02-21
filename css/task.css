@@ -14,10 +14,10 @@ body {
   font-family: "Cutive Mono", monospace;
 }
 
-.wrong {
+/*.wrong {
   background: #f00;
   color: #fff;
-}
+}*/
 
 .results {
   position: relative;
@@ -147,7 +147,7 @@ textarea {
 }
 
 .settings {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 ._hide {
