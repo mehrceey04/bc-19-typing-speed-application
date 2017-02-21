@@ -20,6 +20,9 @@ $(window).keypress(function(evt){
       wordcount ++;
       $("#wordcount").text(wordcount);
     }
+    if(charTyped == errors){
+      charTyped = "";
+    }
     index ++;
     current_string = letters.substring(index, index + character_length);
     $("#target").text(current_string);
@@ -33,6 +36,8 @@ $(window).keypress(function(evt){
       }
       wpm = Math.round(wordcount / (timer / 60));
       $("#wpm").text(wpm);
+      accuracy = Math.round((character_length - errors) / character_length * 100);
+      $("#accuracy").text(accuracy);
       stop();
       finished();
     }
@@ -43,25 +48,23 @@ $(window).keypress(function(evt){
   }
 });
 
-var timer = 0;
-var wpm = 0;
-var errors = 0;
-var interval_timer;
+var timer = 0, wpm = 0, errors = 0, accuracy = 0, interval_timer;
+
 
 $("#reset").click(function(){
   reset();
 });
 
-$("#pauses").click(function(){
+$("#pause").click(function(){
   stop();
-  $("#pauses").hide();
-  $("#plays").show();
+  $("#pause").hide();
+  $("#play").show();
 });
 
-$("#plays").click(function(){
+$("#play").click(function(){
   start();
-  $("#plays").hide();
-  $("#pauses").toggle();
+  $("#play").hide();
+  $("#pause").toggle();
   stop();
 });
 
@@ -73,6 +76,8 @@ function start(){
   interval_timer = setInterval(function(){
     timer ++;
     $("#timer").text(timer);
+    accuracy = Math.round((character_length - errors) / character_length * 100);
+    $("#accuracy").text(accuracy);
     wpm = Math.round(wordcount / (timer / 60));
     $("#wpm").text(wpm);
   }, 1000);
@@ -90,5 +95,5 @@ function reset(){
 }
 
 function finished(){
-  $("#output").text("Congratulations! Words per minute: " + wpm + " WPM" + "\nWordcount: " + wordcount + "\nErrors:" + errors);
+  $("#output").text("Congratulations! Words per minute: " + wpm + " WPM" + "\nWordcount: " + wordcount + "\nErrors:" + errors + "\nAccuracy: " + accuracy + "%");
 }
