@@ -3,7 +3,6 @@
 }
 */
 body {
-  padding-top: 20px;
   font-family: Roboto, sans-serif;
   text-align: center;
   background: #fff;
@@ -21,10 +20,13 @@ body {
 }
 
 .results {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
+}
+.results li{
+  font-size: 20px;
 }
 
 .stats {
@@ -72,7 +74,7 @@ body {
 }
 .target:before {
   font-family: Roboto;
-  top: 0;
+  top: -15px;
   left: 0;
   right: 0;
   background: #000;
@@ -145,29 +147,14 @@ textarea {
 }
 
 .settings {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 3px 6px 6px;
-  background: #444;
-  font-family: Roboto, sans-serif;
-  color: #999;
-  text-align: left;
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-  border-top: 3px solid #222;
-  font-size: 12px;
-}
-.settings a {
-  color: #fff;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
-  text-decoration: none;
-}
-.settings a:hover {
-  color: #ccf;
+  font-size: 40px;
 }
 
-.hide {
+._hide {
   display: none;
+}
+
+.wrapper{
+  display: relative;
+  padding: 30px 15px
 }
