@@ -119,7 +119,7 @@ function initApp() {
     document.getElementById('quickstart-verify-email').disabled = true;
     // [END_EXCLUDE]
     if (user) {
-      //window.location = '/task';
+      window.location = '/task';
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
