@@ -25,8 +25,12 @@ app.get('/leader', function (req, res) {
   res.render('leader');
 })
 
+app.get('/test', function (req, res) {
+  res.render('test');
+})
+
 var port = process.env.PORT || 3000
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('Example app listening on port 3000!')
 })
