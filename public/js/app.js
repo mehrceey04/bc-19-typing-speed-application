@@ -25,7 +25,7 @@ btnLogin.addEventListener('click', e => {
  //add signUp event
   btnSignUp.addEventListener('click', e => {
   	var email = txtEmail.value;
-    var pass = txtPassword.value;
+    var password = txtPassword.value;
     var auth = firebase.auth();
     
     var promise = auth.createUserWithEmailAndPassword(email, pass);

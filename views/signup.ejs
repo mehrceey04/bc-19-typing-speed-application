@@ -8,13 +8,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mehrceey's Space</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/app.js"></script>
     <!-- Google Webfont -->
     <link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Firebase -->
+    <!-- ***********************************************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
+       *********************************************************************************************************************** -->
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyDTtXPIG5QLuOpEou_03cW9bwWlJsT55cU",
+      authDomain: "typing-speed-app-c0ad7.firebaseapp.com",
+      databaseURL: "https://typing-speed-app-c0ad7.firebaseio.com",
+      storageBucket: "typing-speed-app-c0ad7.appspot.com",
+      messagingSenderId: "461044281575"
+    };
+    firebase.initializeApp(config);
+    </script>
+
   </head>
   <body>
     <!-- Header -->
@@ -22,7 +39,7 @@
       <div class="container">
         <!-- Logo -->
         <div id="fh5co-logo">
-          <a href="index.html"><img src="images/mlogo1.jpg" width="100px" height="100px" alt="Work Logo"></a>
+          <a href="/"><img src="images/mlogo1.jpg" width="100px" height="100px" alt="Work Logo"></a>
         </div>
         <!-- Logo -->
         <!-- Main Nav -->
@@ -45,7 +62,7 @@
               <div class="col-md-12">
               </div>
               <div class="col-md-8 col-md-offset-2">
-                <form action="task.html" method="">
+                <form action="/task" method="get">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="username" class="sr-only">Username</label>
@@ -84,10 +101,13 @@
             <li><a href="http://github.com/mehrceey04">Github</a></li>
             <li><a href="http://instagram.com/mehrceey04">Instagram</a></li>
           </ul>
-          <p class="fh5co-copyright">(c) 2017 <a href="index.html">Home</a>. All Rights Reserved.<br></p>
+          <p class="fh5co-copyright">(c) 2017 <a href="/">Home</a>. All Rights Reserved.<br></p>
         </div>
       </div>
     </div>
     </footer>
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    
   </body>
 </html>

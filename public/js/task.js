@@ -20,9 +20,7 @@ $(window).keypress(function(evt){
       wordcount ++;
       $("#wordcount").text(wordcount);
     }
-    if(charTyped == errors){
-      charTyped = "";
-    }
+    
     index ++;
     current_string = letters.substring(index, index + character_length);
     $("#target").text(current_string);

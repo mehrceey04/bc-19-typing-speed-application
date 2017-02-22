@@ -14,10 +14,10 @@ body {
   font-family: "Cutive Mono", monospace;
 }
 
-/*.wrong {
+.wrong {
   background: #f00;
   color: #fff;
-}*/
+}
 
 .results {
   position: relative;
@@ -87,28 +87,6 @@ body {
   color: #fff;
 }
 
-@-webkit-keyframes cursor_flash {
-  0% {
-    background: #fff;
-  }
-  50% {
-    background: #99f;
-  }
-  100% {
-    background: #fff;
-  }
-}
-@keyframes cursor_flash {
-  0% {
-    background: #fff;
-  }
-  50% {
-    background: #99f;
-  }
-  100% {
-    background: #fff;
-  }
-}
 .button {
   display: inline-block;
   padding: 8px 10px;
@@ -147,14 +125,10 @@ textarea {
 }
 
 .settings {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 ._hide {
   display: none;
 }
 
-.wrapper{
-  display: relative;
-  padding: 30px 15px
-}
