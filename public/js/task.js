@@ -53,16 +53,16 @@ $("#reset").click(function(){
   reset();
 });
 
-$("#pause").click(function(){
+$("#pauses").click(function(){
   stop();
-  $("#pause").hide();
-  $("#play").show();
+  $("#pauses").hide();
+  $("#plays").show();
 });
 
-$("#play").click(function(){
+$("#plays").click(function(){
   start();
-  $("#play").hide();
-  $("#pause").toggle();
+  $("#plays").hide();
+  $("#pauses").toggle();
   stop();
 });
 
