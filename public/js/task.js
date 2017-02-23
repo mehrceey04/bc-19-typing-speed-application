@@ -1,3 +1,4 @@
+// Define database variables
 var database = firebase.database().ref();
 var scoresRef = database.child('scores');
 usersRef = database.child('users');
@@ -49,7 +50,9 @@ $(window).keypress(function(evt){
     $("#errors").text(errors);
   }
 });
+
 var timer = 0, wpm = 0, errors = 0, accuracy = 0, interval_timer;
+
 
 $("#reset").click(function(){
   reset();
@@ -95,17 +98,20 @@ function reset(){
 }
 
 function finished(){
-  scoresRef.push().set({
-    user: firebase.auth().currentUser.uid,
-    wpm: wpm,
-    accuracy: accuracy,
-    user: firebase.auth().currentUser.email,
-    
-  }).then(function () {
-    usersRef.child(firebase.auth().currentUser.uid).child('scores').push().set({
+  var userName;
+  usersRef.child(firebase.auth().currentUser.uid).once('value').then(function(data) {
+    userName = data.val().username;
+    scoresRef.push().set({
       wpm: wpm,
-      accuracy: accuracy
-    })
+      accuracy: accuracy,
+      user: firebase.auth().currentUser.uid,
+      userName: userName
+    }).then(function () {
+      usersRef.child(firebase.auth().currentUser.uid).child('scores').push().set({
+        wpm: wpm,
+        accuracy: accuracy
+      })
     $("#output").text("Congratulations! Words per minute: " + wpm + " WPM" + "\nWordcount: " + wordcount + "\nErrors:" + errors + "\nAccuracy: " + accuracy + "%");
+  })
   })
 }

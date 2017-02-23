@@ -39,15 +39,12 @@ function toggleSignIn() {
   document.getElementById('quickstart-sign-in').disabled = true;
 }
 
-//sign out button 
+//sign out 
 function signOut(){
   firebase.auth().signOut();
   window.location = '/';
 }
-
-/*
-  * Handles the sign up button press.
-*/
+//sign up
 function handleSignUp() {
   var username = document.getElementById('username').value;
   var email = document.getElementById('email').value;
