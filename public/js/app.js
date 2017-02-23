@@ -1,6 +1,12 @@
+/**
 /*
   * Handles the sign in button press.
-  */
+  /*/
+//var database = firebase.database().ref();
+// Define database variables
+var database = firebase.database().ref();
+var scoresRef = database.child('scores');
+usersRef = database.child('users');
 function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
@@ -51,9 +57,11 @@ function handleSignUp() {
     alert('Please enter a password.');
     return;
   }
+
   
   // Sign in with email and pass.
     // [START createwithemail]
+  /*
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -69,9 +77,39 @@ function handleSignUp() {
   });
       // [END createwithemail]
 }
+*/
+  firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {        
+    var userName = document.getElementById('username').value;        
+    var userID = firebase.auth().currentUser.uid        
+    // No need to decalre email anymore as it is already passed as an argument        
+    // NEVER save user passwords to your database        
+    database.child('users').child(userID).set({          
+      username: userName,          
+      email: email,          
+      userID: userID,        
+      })        
+    
+      // See how the database set() method saves the user's details under the 'users' tree        
+      // then it saves a new child under the users tree with the user's uniqued id        
+      // Now u can save all of that user's future data under his unique tree      
+      }).catch(function(error) {    
+      // Handle Errors here.    
+      var errorCode = error.code;    
+      var errorMessage = error.message;    
+      // [START_EXCLUDE]    
+      if (errorCode == 'auth/weak-password') {      
+        alert('The password is too weak.');    
+      } else {      
+        alert(errorMessage);    
+      }    
+      console.log(error);    
+      // [END_EXCLUDE]  
+    });      
+      // [END createwithemail]
 /*
   * Sends an email verification to the user.
 */
+}
 function sendEmailVerification() {
   // [START sendemailverification]
   firebase.auth().currentUser.sendEmailVerification().then(function() {
@@ -164,6 +202,8 @@ function initApp() {
   document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
   document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
+
 window.onload = function() {
   initApp();
 };
+

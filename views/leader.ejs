@@ -71,5 +71,31 @@
 			</div>
 		</div>
 		</footer>
+		<!-- Scripts Loaded Here -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    <!--Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDTtXPIG5QLuOpEou_03cW9bwWlJsT55cU",
+      authDomain: "typing-speed-app-c0ad7.firebaseapp.com",
+      databaseURL: "https://typing-speed-app-c0ad7.firebaseio.com",
+      storageBucket: "typing-speed-app-c0ad7.appspot.com",
+      messagingSenderId: "461044281575"
+    };
+    firebase.initializeApp(config);
+		
+			var database = firebase.database().ref();
+			$(document).ready(function() {
+  			
+  			});
+      //console.log("hello");
+    })
+  
+		</script>
 	</body>
 </html>
