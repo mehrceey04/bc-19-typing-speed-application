@@ -91,27 +91,29 @@
       messagingSenderId: "461044281575"
     };
     firebase.initializeApp(config);
-		
+
+		$(document).ready(function() {
 			var scoresRef = firebase.database().ref("scores/");
 			var result = {};
-
-			$(document).ready(function() {
-				scoresRef.orderByChild("user").once("value").then(function (data) { 
-					console.log(data.val());
-					result = data.val();
+			scoresRef.orderByChild("wpm").on("value", function (data) { 
+				var counter = 1;
+				var data_reverse = []
+					data.forEach(function(snap)  {
+						data_reverse.unshift(snap.val())
+					})
+					data_reverse.forEach(function(data) {
+					console.log(data);
 					var t = $('#my-table').DataTable();
-			    var counter = 1;
-			 		Object.values(result).forEach(function(data) {
-			 			t.row.add( [
-			            counter,
-			            data.userName,
-			            data.wpm,
-			            data.accuracy
-			        ] ).draw( false );
-			 			counter++;
-			 		})
-				});
-  		});
+					t.row.add( [
+            counter,
+            data.userName,
+            data.wpm,
+            data.accuracy
+        		] ).draw( false );
+				counter++
+				})
+		 	});
+		});
 		</script>
 		<script src="js/app.js"></script>
 	</body>
