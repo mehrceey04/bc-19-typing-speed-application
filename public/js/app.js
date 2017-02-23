@@ -1,12 +1,7 @@
-/**
-/*
-  * Handles the sign in button press.
-  /*/
-//var database = firebase.database().ref();
 // Define database variables
 var database = firebase.database().ref();
 var scoresRef = database.child('scores');
-usersRef = database.child('users');
+var usersRef = database.child('users');
 function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
@@ -43,12 +38,24 @@ function toggleSignIn() {
     }
   document.getElementById('quickstart-sign-in').disabled = true;
 }
+
+//sign out button 
+function signOut(){
+  firebase.auth().signOut();
+  window.location = '/';
+}
+
 /*
   * Handles the sign up button press.
 */
 function handleSignUp() {
+  var username = document.getElementById('username').value;
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
+  if (username.length < 4) {
+    alert('Please enter a valid user name.');
+    return;
+  }
   if (email.length < 4) {
     alert('Please enter an email address.');
     return;
@@ -58,40 +65,14 @@ function handleSignUp() {
     return;
   }
 
-  
-  // Sign in with email and pass.
-    // [START createwithemail]
-  /*
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // [START_EXCLUDE]
-    if (errorCode == 'auth/weak-password') {
-      alert('The password is too weak.');
-    } else {
-      alert(errorMessage);
-    }
-    console.log(error);
-    // [END_EXCLUDE]
-  });
-      // [END createwithemail]
-}
-*/
   firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {        
     var userName = document.getElementById('username').value;        
-    var userID = firebase.auth().currentUser.uid        
-    // No need to decalre email anymore as it is already passed as an argument        
-    // NEVER save user passwords to your database        
+    var userID = firebase.auth().currentUser.uid              
     database.child('users').child(userID).set({          
       username: userName,          
       email: email,          
       userID: userID,        
-      })        
-    
-      // See how the database set() method saves the user's details under the 'users' tree        
-      // then it saves a new child under the users tree with the user's uniqued id        
-      // Now u can save all of that user's future data under his unique tree      
+    })        
       }).catch(function(error) {    
       // Handle Errors here.    
       var errorCode = error.code;    
@@ -105,16 +86,11 @@ function handleSignUp() {
       console.log(error);    
       // [END_EXCLUDE]  
     });      
-      // [END createwithemail]
-/*
-  * Sends an email verification to the user.
-*/
 }
 function sendEmailVerification() {
   // [START sendemailverification]
   firebase.auth().currentUser.sendEmailVerification().then(function() {
-  // Email Verification sent!
-  // [START_EXCLUDE]
+
     alert('Email Verification Sent!');
       // [END_EXCLUDE]
   });
@@ -143,18 +119,13 @@ function sendPasswordReset() {
     });
     // [END sendpasswordemail];
 }
-/*
-  * Handles registering callbacks for the auth status.
-  * This method registers a listener with firebase.auth().onAuthStateChanged. This listener is called when
-  * the user is signed in or out, and that is where we update the UI.
-  * When signed in, we also authenticate to the Firebase Realtime Database.
-*/
+
 function initApp() {
   // Listening for auth state changes.
   // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {     
     // [START_EXCLUDE silent]
-    document.getElementById('quickstart-verify-email').disabled = true;
+    document.getElementById('quickstart-verify-email').disabled = false;
     // [END_EXCLUDE]
     if (user) {
       window.location = '/task';
@@ -206,4 +177,3 @@ function initApp() {
 window.onload = function() {
   initApp();
 };
-

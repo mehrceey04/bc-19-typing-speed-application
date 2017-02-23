@@ -20,8 +20,6 @@
 				<div id="fh5co-logo">
 					<a href="/"><img src="images/mlogo1.jpg" width="100px" height="100px" alt="Work Logo"></a>
 				</div>
-				<!-- Logo -->
-				<!-- Main Nav -->
 				<div id="fh5co-main-nav">
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
@@ -31,12 +29,9 @@
 						<a href="/leader" class="fh5co-nav-call-to-action js-fh5co-nav-call-to-action">Leaderboards</a>
 					</nav>
 				</div>
-				<!-- Main Nav -->
 			</div>
 		</header>
-		<!-- Header -->
 		<main role="main">
-			<!-- Start Work -->
 			<div id="fh5co-work">
 				<div class="container">
 					<div class="row">
@@ -45,16 +40,69 @@
 								<img src="images/images1.jpg" height="300px" width="300px" alt="Image" class="img-responsive">
 							</a>
 						</div>			
-			<!--End Work -->
-			<!-- Start Intro -->
 			<div id="fh5co-intro">
 				<div class="container">
-				<h3 style="margin-top: 15px; text-align: center">How fast can you type?</h3>
-				<div><p>Welcome to Mehrceey's Typing Speed App</p>
-				</div>
+					<h3 style="margin-top: 15px; text-align: center">How fast can you type?</h3>
+					<div><p>Welcome to Mehrceey's Typing Speed App</p></div>
+					<button id="clickMe" onclick="click()">Click here</button>
 				</div>
 			</div>
-			<!-- End Intro -->
+			<div id="tasks" class="hide">
+				<div class="results">
+      <ul class="stats">
+        <li>Words per minute:	<span id="wpm">0</span></li>
+        <li>Wordcount: <span id="wordcount">0</span></li>
+        <li>Timer: <span id="timer">0</span></li>
+        <li>Errors: <span id="errors">0</span></li>
+        <li>Accuracy: <span id="accuracy">0</span></li>
+      </ul>
+    </div>
+    <h3 id="output"></h3>
+    <div class="target mono" id="target"></div>
+    <div id="your-attempt" class="mono your-attempt" data-placeholder='Your text appear here'></div>
+    <div>
+      <textarea name="" id="input_text" cols="30" rows="10">Hello dear friend.</textarea>
+    </div>
+    <div class="settings">
+      <a href="#" id="reset">Reset</a> | <a href="#" id="pauses"> Pause </a> | <a href="#" id="plays" class="_hide"> Play </a>
+    </div>
+    <footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<ul class="fh5co-footer-social">
+						<li><a href="http://twitter.com/mehrceey04">Twitter</a></li>
+						<li><a href="http://facebook.com/OluwaMehrceey">Facebook</a></li>
+						<li><a href="http://github.com/mehrceey04">Github</a></li>
+						<li><a href="http://instagram.com/mehrceey04">Instagram</a></li>
+					</ul>
+					<p class="fh5co-copyright">(c) 2017 <a href="/">Home</a>. All Rights Reserved.<br></p>
+				</div>
+			</div>
+		</div>
+		</footer>
+	  <!-- Scripts Loaded Here -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+    <!--Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDTtXPIG5QLuOpEou_03cW9bwWlJsT55cU",
+      authDomain: "typing-speed-app-c0ad7.firebaseapp.com",
+      databaseURL: "https://typing-speed-app-c0ad7.firebaseio.com",
+      storageBucket: "typing-speed-app-c0ad7.appspot.com",
+      messagingSenderId: "461044281575"
+    };
+    firebase.initializeApp(config);
+    </script>
+	  <script src="js/task.js"></script>
+    <script src="js/app.js"></script>
+
+
+			</div>
 		</main>
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container">
@@ -70,5 +118,13 @@
 			</div>
 		</div>
 		</footer>
+		<!--Scripts are loaded here-->
+		<script type="text/javascript">
+			function click(){
+				$("#clickMe").onClick(function() {
+					$("/signin").show();
+				});
+			}
+		</script>
 	</body>
 </html>
