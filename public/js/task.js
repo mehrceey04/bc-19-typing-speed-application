@@ -80,8 +80,25 @@ function stop(){
 }
 
 function reset(){
-  window.location.reload();
-}
+  $("#input_text").blur().hide();;
+  $("#your-attempt").text("");
+  index = 0;
+  errors = 0;
+  clearInterval(interval_timer);
+  started = false;
+  letters = $("#input_text").val();
+  $("#wpm").text("0");
+  $("#timer").text("0");
+  $("#wordcount").text("0");
+  $("#accuracy").text("0");
+  $("#errors").text("0");
+  timer = 0;
+  wpm = 0;
+  accuracy = 0;
+  current_string = letters.substring(index, index + character_length);
+  $("#target").text(current_string);
+  $("#output").text("");
+}  
 
 function finished(){
   var userName;
