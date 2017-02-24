@@ -12,8 +12,8 @@
 ## Dependencies
 
 ### Back End Dependencies
-*  This app's functionality depends on Firebase;
-  *  **[Firebase](https://console.firebase.google.com/)** - This framework helps is essential in the creation of  database and user authentication.
+*  This app's functionality depends on Firebase, nodeJS, expressJS;
+  *  **[Firebase](https://console.firebase.google.com/)** - This framework helps in creation of  database and user authentication.
   *  **[NodeJS](https://nodejs.org/)** - Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
   *  **[ExpressJS](https://expressjs.com/)** - Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. I used this framework for routing.
 
@@ -30,11 +30,11 @@
 *  Clone this repository on that directory.
   *  Using SSH;
 
-    >`git clone git@github.com:andela-lkabui/checkpoint4.git`
+    >`git clone git@github.com:mehrceey04/bc-19-typing-speed-application.git`
 
   *  Using HTTP;
 
-    >`https://github.com/mehrceey04/bc-19-typing-speed-application`
+    >`git clone https://github.com/mehrceey04/bc-19-typing-speed-application`
 
 *  Navigate to the repo's folder on your computer
   *  `cd bc-19-typing-speed-application/`
@@ -46,7 +46,7 @@
 
 * Run the app
   *  `npm start`
-  *Go to: [localhost:3000](localhost:3000) on your browser
+*Go to: [localhost:3000](localhost:3000) on your browser
 
 ### Suggestions and feedback are welcome.
  
