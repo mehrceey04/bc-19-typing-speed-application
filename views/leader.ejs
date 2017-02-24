@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Mehrceey's Typing Speed</title>
+		<title>Mehrceey's Typing Space</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Google Webfont -->
 		<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
@@ -27,7 +27,8 @@
 						<ul>
 							<li class="fh5co-active"><a href="/">Home</a></li>
 							<li class="fh5co-active"><a href="/task">Game</a></li>
-							<li class="fh5co-active" onclick="signOut()">Sign out</li>
+							<li class="fh5co-active" id="signed-in"><a href="/signin">Sign in</a></li>
+							<li class="fh5co-active" onclick="signOut()" id="sign-out"><a href="#">Sign out</a></li>
 							<li></li>
 						</ul>
 						<a href="/leader" class="fh5co-nav-call-to-action js-fh5co-nav-call-to-action">Leaderboards</a>
@@ -91,7 +92,15 @@
       messagingSenderId: "461044281575"
     };
     firebase.initializeApp(config);
-
+    var signOutElement = $('#sign-out');
+    var signInElement = $("#signed-in");
+    signOutElement.hide();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        signOutElement.show();
+        signInElement.hide();
+      }
+    });
 		$(document).ready(function() {
 			var scoresRef = firebase.database().ref("scores/");
 			var result = {};
@@ -102,7 +111,6 @@
 						data_reverse.unshift(snap.val())
 					})
 					data_reverse.forEach(function(data) {
-					console.log(data);
 					var t = $('#my-table').DataTable();
 					t.row.add( [
             counter,

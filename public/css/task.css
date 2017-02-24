@@ -1,7 +1,7 @@
-/*div[data-placeholder]:not([data-placeholder=""]):empty::before {
+div[data-placeholder]:not([data-placeholder=""]):empty::before {
   content: attr(data-placeholder);
 }
-*/
+
 body {
   font-family: Roboto, sans-serif;
   text-align: center;
@@ -59,7 +59,6 @@ body {
   width: 600px;
   display: inline-block;
   position: relative;
-  white-space: pre;
   background: #333;
   box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.2);
   padding: 22px 10px 10px;
@@ -69,8 +68,7 @@ body {
   content: '';
   position: absolute;
   width: 20px;
-  height: 2px;
-  background: #f00;
+  height: 12px;
   left: 10px;
   top: 53px;
   -webkit-animation: cursor_flash .5s infinite;
@@ -85,7 +83,7 @@ body {
   content: 'Type the text below';
   text-transform: uppercase;
   font-size: 10px;
-  padding: 2px;
+  padding: 0px;
   text-align: left;
   position: absolute;
   color: #fff;
@@ -100,7 +98,8 @@ body {
 }
 
 #textarea {
-  position: absolute;
+  width: 45px;
+  height: 500px;
 }
 
 textarea {

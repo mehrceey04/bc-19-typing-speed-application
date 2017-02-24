@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Mehrceey's Typing Speed</title>   	
+    <title>Mehrceey's Typing Space</title>   	
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono|Roboto:400,900,700' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/task.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,9 @@
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
 							<li class="fh5co-active"><a href="/">Home</a></li>
-              <li class="fh5co-active" onclick="signOut()">Sign out</li>
+              <li class="fh5co-active" onclick="signOut()" id="sign-out"><a href="#">Sign out</a></li>
+              <li class="fh5co-active" id="signed-in"><a href="/signin">Sign in</a></li>
+              <li class="fh5co-active" id="sign-out"><a href="#">Games</a></li>
 						</ul>
 						<a href="/leader" class="fh5co-nav-call-to-action js-fh5co-nav-call-to-action">Leaderboards</a>
 					</nav>
@@ -45,10 +47,10 @@
     <div class="target mono" id="target"></div>
     <div id="your-attempt" class="mono your-attempt" data-placeholder='Your text appear here'></div>
     <div>
-      <textarea name="" id="input_text" cols="30" rows="10">Hello dear friend.</textarea>
+      <textarea name="" id="input_text" cols="" rows=""></textarea>
     </div>
     <div class="settings">
-      <a href="#" id="reset">Reset</a> | <a href="#" id="pauses"> Pause </a> | <a href="#" id="plays" class="_hide"> Play </a>
+      <a href="#" id="reset">Reset</a> | <a href="#" id="pause"> Pause </a>
     </div>
     <footer id="fh5co-footer" role="contentinfo">
 			<div class="container">
@@ -81,6 +83,15 @@
       messagingSenderId: "461044281575"
     };
     firebase.initializeApp(config);
+    var signOutElement = $('#sign-out');
+    var signInElement = $("#signed-in");
+    signOutElement.hide();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        signOutElement.show();
+        signInElement.hide();
+      }
+    });
     </script>
 	  <script src="js/task.js"></script>
     <script src="js/app.js"></script>

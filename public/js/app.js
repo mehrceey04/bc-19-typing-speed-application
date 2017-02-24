@@ -26,7 +26,7 @@ function toggleSignIn() {
         var errorMessage = error.message;
         // [START_EXCLUDE]
         if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
+          alert('Wrong email or password.');
         } else {
           alert(errorMessage);
         }
@@ -50,7 +50,7 @@ function handleSignUp() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   if (username.length < 4) {
-    alert('Please enter a valid user name.');
+    alert('Please enter a username, [A-Z, 0-9].');
     return;
   }
   if (email.length < 4) {
