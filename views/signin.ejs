@@ -38,15 +38,15 @@
       <!-- Container for the demo -->
       <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-          <h5>Enter an email and password below and either sign in to an existing account or sign up</h5>
+          <h3>Enter email and password below to sign into an existing account</h3>
+          <h4>Enter email, username and password sign to create an account</h4>
           <input type="text" id="username" name="username" placeholder="Username"/><br /><br />
           <input type="text" id="email" name="email" placeholder="Email"/><br /><br />
           <input type="password" id="password" name="password" placeholder="Password"/><br/><br/>
-          <button class="mdl-button mdl-js-button mdl-button--raised btn btn-danger" id="quickstart-sign-in" name="signin">Sign In</button>
-           <button class="btn btn-danger" id="quickstart-sign-up"  name="signup">Sign Up</button>
-          <button class="btn btn-danger hide" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-          <button class="btn btn-danger hide" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-          <!-- Container where we'll display the user details -->
+          <button class="mdl-button mdl-js-button mdl-button--raised btn btn-info" id="quickstart-sign-in" name="signin">Sign In</button>
+           <button class="btn btn-info" id="quickstart-sign-up"  name="signup">Sign Up</button>
+          <button class="btn btn-info hide" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
+          <button class="btn btn-info hide" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
           <br><br><p id="create"><a>Create an account</a></p><br><br>
         </div>
       </div>
@@ -66,13 +66,16 @@
     firebase.initializeApp(config);
     </script>
     <script type="text/javascript">
-        $("#username").hide();
-        $("#quickstart-sign-up").hide();
-        $("#create").on('click', function() {
-          $("#quickstart-sign-in").hide();
-          $("#username").show();
-          $("#quickstart-sign-up").show();
-          $("#create").hide();
+      $("#username").hide();
+      $("h4").hide();
+      $("#quickstart-sign-up").hide();
+      $("#create").on('click', function() {
+        $("#quickstart-sign-in").hide();
+        $("#username").show();
+        $("h4").show();
+        $("h3").hide();
+        $("#quickstart-sign-up").show();
+        $("#create").hide();
       });
     </script>
     <script src="js/app.js"></script>

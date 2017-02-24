@@ -51,7 +51,7 @@ a {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  color: #1d2dfd;
+  color: #7c7c7c;
   border-bottom: 2px solid transparent;
 }
 a:hover, a:active, a:focus {
@@ -523,7 +523,7 @@ pre {
 }
 
 #fh5co-footer {
-  padding-bottom: 2em;
+  padding-bottom: 0;
   background-color: black;
 }
 @media screen and (max-width: 768px) {
@@ -822,11 +822,11 @@ pre {
 }
 
 .btn-info {
-  background: #0bbff2;
+  background: #5b5bd3;
   border: 2px solid #0bbff2;
 }
 .btn-info:hover, .btn-info:active, .btn-info:focus {
-  background: #09a4d0;
+  background: #4a4a62;
 }
 
 .btn-warning {

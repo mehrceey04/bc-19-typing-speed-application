@@ -2,8 +2,17 @@
 var database = firebase.database().ref();
 var scoresRef = database.child('scores');
 usersRef = database.child('users');
+var texts = [" Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it", 
+  "Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration", 
+  "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.", 
+  "Good code is its own best documentation.", 
+  "Good code is its own best documentation. As you're about to add a comment, ask yourself", "How can I improve the code so that this comment isn't needed?", 
+  "Improve the code and then document it to make it even clearer."];
 
-var character_length = 17;
+var random = texts[Math.floor(Math.random() * texts.length)];
+$("#input_text").val(random);
+
+var character_length = $("#input_text").val().length;
 var index = 0;
 var letters =  $("#input_text").val();
 var started = false;
@@ -111,7 +120,7 @@ function finished(){
         wpm: wpm,
         accuracy: accuracy
       })
-    $("#output").text("Congratulations! Words per minute: " + wpm + " WPM" + "\nWordcount: " + wordcount + "\nErrors:" + errors + "\nAccuracy: " + accuracy + "%");
+    $("#output").html("<h5>Congratulations!</h5> <p>Words per minute: " + wpm + " WPM</p><p> Wordcount: " + wordcount + "</p> " + "<p>Errors:" + errors + "</p> " + "<p>Accuracy: " + accuracy + "% </p>");
   })
   })
 }
