@@ -39,7 +39,7 @@ $(window).keypress(function(evt){
       }
       wpm = Math.round(wordcount / (timer / 60));
       $("#wpm").text(wpm);
-      accuracy = Math.round((character_length - errors) / character_length * 100);
+      accuracy = Math.round(((wordcount - errors) / wordcount) * 100);
       $("#accuracy").text(accuracy);
       stop();
       finished();
@@ -67,7 +67,7 @@ function start(){
   interval_timer = setInterval(function(){
     timer ++;
     $("#timer").text(timer);
-    accuracy = Math.round((character_length - errors) / character_length * 100);
+    accuracy = Math.round(((wordcount - errors) / wordcount) * 100);
     $("#accuracy").text(accuracy);
     wpm = Math.round(wordcount / (timer / 60));
     $("#wpm").text(wpm);
