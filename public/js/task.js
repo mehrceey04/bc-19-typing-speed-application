@@ -37,10 +37,14 @@ $(window).keypress(function(evt){
       if(timer === 0){
         timer = 1;
       }
+      accuracy = Math.round(((character_length - errors) / character_length) * 100);
+      if(accuracy > 0){
+        $("#accuracy").text(accuracy);
+      }else{
+        $("#accuracy").text('0');
+      }
       wpm = Math.round(wordcount / (timer / 60));
       $("#wpm").text(wpm);
-      accuracy = Math.round(((wordcount - errors) / wordcount) * 100);
-      $("#accuracy").text(accuracy);
       stop();
       finished();
     }
@@ -53,22 +57,24 @@ $(window).keypress(function(evt){
 
 var timer = 0, wpm = 0, errors = 0, accuracy = 0, interval_timer;
 
-
 $("#reset").click(function(){
   reset();
 });
 
 $("#pause").click(function(){
   stop();
-  
 });
 
 function start(){
   interval_timer = setInterval(function(){
     timer ++;
     $("#timer").text(timer);
-    accuracy = Math.round(((wordcount - errors) / wordcount) * 100);
-    $("#accuracy").text(accuracy);
+    accuracy = Math.round(((character_length - errors) / character_length) * 100);
+    if(accuracy > 0){
+      $("#accuracy").text(accuracy);
+    }else{
+      $("#accuracy").text(0);
+    }
     wpm = Math.round(wordcount / (timer / 60));
     $("#wpm").text(wpm);
   }, 1000);
